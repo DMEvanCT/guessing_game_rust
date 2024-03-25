@@ -4,10 +4,14 @@ use std::cmp::Ordering;
 
 fn main() {
     println!("Guess the number!");
-
+    let mut count = 0u32;
     let secret_number = rand::thread_rng().gen_range(1..=100);
-
+    println!("Welcome to the guessing game! You have 10 tries to guess the secret number. If you don't guess it in 5 tries, I'll give you a hint. 
+    If you don't guess it in 10 tries, I'll tell you the secret number. 
+    Good luck!");
+    
     loop {
+    count += 1;
     println!("Please input your guess or type exit to exit.");
 
     let mut guess = String::new();
@@ -20,7 +24,7 @@ fn main() {
         println!("Goodbye!");
         break;
     }
-    
+
     let guess: u32 = match guess.trim().parse() {
         Ok(num) => num,
         Err(_) => {
@@ -43,6 +47,20 @@ fn main() {
 
         }
     }
+    if count == 5 {
+        if secret_number % 2 == 0 {
+            println!("The secret number is even!");
+        } else {
+            println!("The secret number is odd!");
+        }
+    }
+    
+    if count == 10 {
+        println!("You lose!");
+        println!("The secret number is: {}", secret_number);
+        break;
+    }
+
 
     println!("You guessed: {}", guess);
 
