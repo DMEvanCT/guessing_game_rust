@@ -54,6 +54,27 @@ fn main() {
             println!("The secret number is odd!");
         }
     }
+
+    if count == 6 {
+        if secret_number > 50 {
+            println!("The secret above 50");
+        } else {
+            println!("The secret number is below 50!");
+        }
+    }
+
+    if count == 8 {
+        if secret_number > 70 {
+            println!("The secret above 70");
+        } else if secret_number > 90 {
+            println!("The secret above 90");
+        } else if secret_number < 20 {
+            println!("The secret below 20");
+        } else {
+            println!("The secret number is between 20 and 70");
+        }
+
+    }
     
     if count == 10 {
         println!("You lose!");
